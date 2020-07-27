@@ -1,0 +1,22 @@
+# Copyright (C) IBM Corporation 2018. All Rights Reserved
+#
+#    This program is licensed under the terms of the Eclipse Public License
+#    v1.0 as published by the Eclipse Foundation and available at
+#    http://www.eclipse.org/legal/epl-v10.html
+#
+#    
+#    
+# $COPYRIGHT$
+all:
+	export INCDIR=${SMPI_CUDA_INSTALL_DIR}/include/cuda && \
+        export ARCH=$(ARCH) && \
+          make -C src -f Makefile.build all
+	echo make -C test all
+	echo make -C examples all
+	echo make -C mod all
+	
+clean:
+	make -C src -f Makefile.build clean
+	echo make -C test clean
+	echo make -C examples clean
+	echo make -C mod clean
